@@ -1,0 +1,14 @@
+<!-- 
+    커스텀마이징 하고싶은 페이지만 
+    C:\Users\obj\myenv\Lib\site-packages\django\contrib\admin\templates\admin같은 기본 장고 폴더에서
+    가져온 후 변경하면됨 물론 settings.py에서 템플렛 패스도 변경해야함
+-->
+{% extends "admin/base.html" %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Polls administration</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
